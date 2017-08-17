@@ -7,7 +7,7 @@
      
  2.Add CustomFlowLayout to MIViewController, then set delegate for it
  
-               - (void)initialize
+         - (void)initialize
             {
                 self.title = @"Cover Flow";
 
