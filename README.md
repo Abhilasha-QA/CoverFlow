@@ -1,7 +1,7 @@
 # CoverFlow
 ![coverflow](https://user-images.githubusercontent.com/4393462/29405802-9c921660-835c-11e7-9edc-b0df915b4f68.gif)
 # Usage
-1. Import CustomFlowLayout and PhotoCollectionViewCell module to your MIViewController class
+1. Import CustomFlowLayout and PhotoCollectionViewCell module to your MIViewController class.
    
          #import "CustomFlowLayout.h"
          #import "PhotoCollectionViewCell.h"
@@ -11,7 +11,7 @@
              IBOutlet UICollectionView *collCoverFlow;
          }
      
- 2. Add CustomFlowLayout and PhotoCollectionViewCell to MIViewController, then set delegate for it
+ 2. Add CustomFlowLayout and PhotoCollectionViewCell to MIViewController, then set delegate for it.
  
          - (void)initialize
             {
@@ -99,7 +99,7 @@
              }
          }
 
-5. Add Custom Flow layout Delegate to MIViewController
+5. Add Custom Flow layout Delegate to MIViewController.
 
             #pragma mark
             #pragma mark - Custom Flow layout Delegate
