@@ -10,7 +10,7 @@
              IBOutlet UICollectionView *collCoverFlow;
          }
      
- 2.Add CustomFlowLayout to MIViewController, then set delegate for it
+ 2. Add CustomFlowLayout to MIViewController, then set delegate for it
  
          - (void)initialize
             {
@@ -30,7 +30,7 @@
                 [collCoverFlow setCollectionViewLayout:cLayout animated:NO];
             }
 
-3.Add Iteams in array(Here we can add bundle images but you can use URL instead of this).
+3. Add Iteams in array(Here we can add bundle images but you can use URL instead of this).
 
          // Add iteams
          - (void)addItemInArray
@@ -41,3 +41,60 @@
                                               @{@"image":@"4.jpg"},
                                               @{@"image":@"5.jpg"}]];
          }
+         
+4. Add CollectionView Delegate
+
+         #pragma mark
+         #pragma mark - CollectionView Delegate
+
+         - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+         {
+             //... total image + 1 for Last cell is Tap to Reload
+             return arrImages.count + 1;
+         }
+
+         - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+         {
+             //... Propotional height and width of collection view cell according Device
+             int size = CScreenWidth * 304 / 375;
+             return CGSizeMake(size ,size);
+         }
+
+         - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+         {
+             static NSString *identifier = @"PhotoCollectionViewCell";
+             PhotoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+
+             //... Configure cell
+
+             cell.tag = indexPath.row;
+
+             if (indexPath.row == arrImages.count)
+             {
+                 //... Tap to Reload
+                 cell.lblReload.hidden = NO;
+                 cell.imageView.hidden = YES;
+             }
+             else
+             {
+                 //... Image cell
+                 cell.lblReload.hidden = YES;
+                 cell.imageView.hidden = NO;
+                 NSDictionary *dictData = arrImages[indexPath.row];
+                 cell.imageView.image = [UIImage imageNamed:[dictData valueForKey:@"image"]];
+             }
+
+             return cell;
+         }
+
+         - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+         {
+             if (arrImages.count == 0)
+             {
+                 //... Last cell for Tap To Reload
+                 //... When arrImage count is 0
+                 [self addItemInArray];
+                 [collCoverFlow reloadData];
+             }
+         }
+
