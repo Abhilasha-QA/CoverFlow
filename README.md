@@ -4,6 +4,11 @@
 1. Import CustomFlowLayout module to your MIViewController class
    
          #import "CustomFlowLayout.h"
+
+         @interface MIViewController : UIViewController<FlowLayoutDelegate>
+         {
+             IBOutlet UICollectionView *collCoverFlow;
+         }
      
  2.Add CustomFlowLayout to MIViewController, then set delegate for it
  
