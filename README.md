@@ -29,3 +29,15 @@
                 cLayout.delegate = self;
                 [collCoverFlow setCollectionViewLayout:cLayout animated:NO];
             }
+
+3.Add Iteams in array(Here we can add bundle images but you can use URL instead of this).
+
+         // Add iteams
+         - (void)addItemInArray
+         {
+             [arrImages addObjectsFromArray:@[@{@"image":@"1.jpg"},
+                                              @{@"image":@"2.jpg"},
+                                              @{@"image":@"3.jpg"},
+                                              @{@"image":@"4.jpg"},
+                                              @{@"image":@"5.jpg"}]];
+         }
