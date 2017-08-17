@@ -1,16 +1,17 @@
 # CoverFlow
 ![coverflow](https://user-images.githubusercontent.com/4393462/29405802-9c921660-835c-11e7-9edc-b0df915b4f68.gif)
 # Usage
-1. Import CustomFlowLayout module to your MIViewController class
+1. Import CustomFlowLayout and PhotoCollectionViewCell module to your MIViewController class
    
          #import "CustomFlowLayout.h"
+         #import "PhotoCollectionViewCell.h"
 
          @interface MIViewController : UIViewController<FlowLayoutDelegate>
          {
              IBOutlet UICollectionView *collCoverFlow;
          }
      
- 2. Add CustomFlowLayout to MIViewController, then set delegate for it
+ 2. Add CustomFlowLayout and PhotoCollectionViewCell to MIViewController, then set delegate for it
  
          - (void)initialize
             {
@@ -30,7 +31,7 @@
                 [collCoverFlow setCollectionViewLayout:cLayout animated:NO];
             }
 
-3. Add Iteams in array(Here we can add bundle images but you can use URL instead of this).
+3. Add Iteams in array to MIViewController (Here we can add bundle images but you can use URL instead of this).
 
          // Add iteams
          - (void)addItemInArray
@@ -42,7 +43,7 @@
                                               @{@"image":@"5.jpg"}]];
          }
          
-4. Add CollectionView Delegate
+4. Add CollectionView Delegate to MIViewController
 
          #pragma mark
          #pragma mark - CollectionView Delegate
@@ -98,3 +99,22 @@
              }
          }
 
+5. Add Custom Flow layout Delegate to MIViewController
+
+            #pragma mark
+            #pragma mark - Custom Flow layout Delegate
+
+            - (BOOL)shouldCellMoveUpForIndexPath:(NSIndexPath *)indexpath
+            {
+                //... arrImage count greater than 0 return YES else return NO
+                //... return YES that means Cell of indexpath is movable
+
+                return arrImages.count != 0;
+            }
+
+            - (void)cellDidMovedUp:(UICollectionViewCell *)cell indexPath:(NSIndexPath *)indexPath
+            {
+                //...Remove item from Array and Reload Collection view
+                [arrImages removeObjectAtIndex:indexPath.row];
+                [collCoverFlow reloadData];
+            }
