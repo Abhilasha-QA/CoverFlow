@@ -1,6 +1,24 @@
 # CoverFlow
 ![coverflow](https://user-images.githubusercontent.com/4393462/29405802-9c921660-835c-11e7-9edc-b0df915b4f68.gif)
+
+#Requirements
+Minimum OS 8.4 and later
+
+#Manual Installation
+You can directly add all the source files from CustomFlowLayout folder to your project.
+
+#Introduce
+CustomFlowLayout Controller is subclass of UICollectionViewFlowLayout with the custom animation and layout.
+
+
 # Usage
+Here is the instruction of how to use UICollectionViewFlowLayout.
+1) Add native UICollectionView to the your view controller Xib.
+2) Create your custom Collectionview cell.
+3) Register your custom collection view cell in your View controller.
+4) Set Custom Layout Flow of Collection view and alloc in your ViewController viewDidLoad() method and Explain in details Point 2 below.
+
+
 1. Import CustomFlowLayout and PhotoCollectionViewCell module to your MIViewController class.
    
          #import "CustomFlowLayout.h"
