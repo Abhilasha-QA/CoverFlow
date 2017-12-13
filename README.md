@@ -1,13 +1,13 @@
 # CoverFlow
 ![coverflow](https://user-images.githubusercontent.com/4393462/29405802-9c921660-835c-11e7-9edc-b0df915b4f68.gif)
 
-#Requirements
+# Requirements
 Minimum OS 8.4 and later
 
-#Manual Installation
+# Manual Installation
 You can directly add all the source files from CustomFlowLayout folder to your project.
 
-#Introduce
+# Introduce
 CustomFlowLayout Controller is subclass of UICollectionViewFlowLayout with the custom animation and layout.
 
 
