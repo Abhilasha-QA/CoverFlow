@@ -1,5 +1,5 @@
 # CoverFlow
-![coverflow](https://user-images.githubusercontent.com/4393462/29405802-9c921660-835c-11e7-9edc-b0df915b4f68.gif)
+![coverflow](https://user-images.githubusercontent.com/7846766/41909080-b84d1348-7963-11e8-82a1-81ac746f2e9b.gif)
 
 # Requirements
 Minimum OS 8.4 and later
@@ -87,6 +87,7 @@ Here is the instruction of how to use UICollectionViewFlowLayout.
              //... Configure cell
 
              cell.tag = indexPath.row;
+             cell.imgLikeUnLike.hidden = true;
 
              if (indexPath.row == arrImages.count)
              {
@@ -136,7 +137,33 @@ Here is the instruction of how to use UICollectionViewFlowLayout.
                 [arrImages removeObjectAtIndex:indexPath.row];
                 [collCoverFlow reloadData];
             }
+            -(void)cellDidMovedRight:(UICollectionViewCell *)cell indexPath:(NSIndexPath *)indexPath
+            {
+                 PhotoCollectionViewCell *cellPhoto = (PhotoCollectionViewCell *) [collCoverFlow cellForItemAtIndexPath:indexPath];
+                 cellPhoto.imgLikeUnLike.hidden = false;
+                 cellPhoto.imgLikeUnLike.image = [UIImage imageNamed:@"unlike"];
+
+            }
+
+            -(void)cellDidMovedLeft:(UICollectionViewCell *)cell indexPath:(NSIndexPath *)indexPath
+            {
+                PhotoCollectionViewCell *cellPhoto = (PhotoCollectionViewCell *) [collCoverFlow cellForItemAtIndexPath:indexPath];
+                cellPhoto.imgLikeUnLike.image = [UIImage imageNamed:@"like"];
+                cellPhoto.imgLikeUnLike.hidden = false;
+            }
+
+            -(void)cellDidNotMoved:(UICollectionViewCell *)cell indexPath:(NSIndexPath *)indexPath
+            {
+                PhotoCollectionViewCell *cellPhoto = (PhotoCollectionViewCell *) [collCoverFlow cellForItemAtIndexPath:indexPath];
+                cellPhoto.imgLikeUnLike.hidden = true;
+            }
             
+            
+# Changelog
+ ## Version 1.1
+  -Adding Like and Dislike functionality on swipe left and right [#1](https://github.com/Mindinventory/CoverFlow/issues/1)
+  
+
 # LICENSE!
 
 CoverFlow is [MIT-licensed](https://github.com/mindinventory/CoverFlow/blob/master/LICENSE).
