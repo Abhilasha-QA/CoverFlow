@@ -16,6 +16,7 @@
 #define CellOffset                      10
 #define MaxItemY                        70
 #define CellPadding                     0
+#define minimumDistanceLikeUnlike       35  // Display like and unlike button according this value
 
 #define ROTATION_STRENGTH               100 //%%% strength of rotation. Higher = weaker rotation
 #define ROTATION_ANGLE M_PI/8 //%%% Higher = stronger rotation angle
@@ -179,6 +180,8 @@
         if (cell)
         {
          
+            NSLog(@"coordinate %@", NSStringFromCGPoint(coordinate));
+            
             CGFloat newCenterX = initialItemCenter.x + coordinate.x;
             CGFloat newCenterY = initialItemCenter.y + coordinate.y;
             cell.center = CGPointMake(newCenterX, newCenterY);
@@ -193,6 +196,20 @@
             
             //%%% apply transformations
             cell.transform = transform;
+            
+            //Check cell move left or Right
+            if (coordinate.x > minimumDistanceLikeUnlike) {
+                if ([self.delegate respondsToSelector:@selector(cellDidMovedRight:indexPath:)])
+                    [self.delegate cellDidMovedRight:cell indexPath:draggedItemPath];
+            }else if (coordinate.x < -(minimumDistanceLikeUnlike))
+            {
+                if ([self.delegate respondsToSelector:@selector(cellDidMovedLeft:indexPath:)])
+                    [self.delegate cellDidMovedLeft:cell indexPath:draggedItemPath];
+            }else
+            {
+                if ([self.delegate respondsToSelector:@selector(cellDidNotMoved:indexPath:)])
+                    [self.delegate cellDidNotMoved:cell indexPath:draggedItemPath];
+            }
         }
     }
 }

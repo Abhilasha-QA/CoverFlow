@@ -58,7 +58,7 @@
     cLayout.delegate = self;
     [collCoverFlow setCollectionViewLayout:cLayout animated:NO];
 }
-
+// Add iteams
 - (void)addItemInArray
 {
     [arrImages addObjectsFromArray:@[@{@"image":@"1.jpg"},
@@ -93,7 +93,7 @@
     //... Configure cell
     
     cell.tag = indexPath.row;
-    
+    cell.imgLikeUnLike.hidden = true;
     if (indexPath.row == arrImages.count)
     {
         //... Tap to Reload
@@ -106,6 +106,8 @@
         cell.lblReload.hidden = YES;
         cell.imageView.hidden = NO;
         NSDictionary *dictData = arrImages[indexPath.row];
+        //Use url for images then uncomment following line
+        // cell.imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[dictData valueForKey:@"image"]]]];
         cell.imageView.image = [UIImage imageNamed:[dictData valueForKey:@"image"]];
     }
     
@@ -138,10 +140,31 @@
 
 - (void)cellDidMovedUp:(UICollectionViewCell *)cell indexPath:(NSIndexPath *)indexPath
 {
+   
     //...Remove item from Array and Reload Collection view
     [arrImages removeObjectAtIndex:indexPath.row];
     [collCoverFlow reloadData];
 }
 
+-(void)cellDidMovedRight:(UICollectionViewCell *)cell indexPath:(NSIndexPath *)indexPath
+{
+     PhotoCollectionViewCell *cellPhoto = (PhotoCollectionViewCell *) [collCoverFlow cellForItemAtIndexPath:indexPath];
+     cellPhoto.imgLikeUnLike.hidden = false;
+     cellPhoto.imgLikeUnLike.image = [UIImage imageNamed:@"unlike"];
+    
+}
+
+-(void)cellDidMovedLeft:(UICollectionViewCell *)cell indexPath:(NSIndexPath *)indexPath
+{
+    PhotoCollectionViewCell *cellPhoto = (PhotoCollectionViewCell *) [collCoverFlow cellForItemAtIndexPath:indexPath];
+    cellPhoto.imgLikeUnLike.image = [UIImage imageNamed:@"like"];
+    cellPhoto.imgLikeUnLike.hidden = false;
+}
+
+-(void)cellDidNotMoved:(UICollectionViewCell *)cell indexPath:(NSIndexPath *)indexPath
+{
+    PhotoCollectionViewCell *cellPhoto = (PhotoCollectionViewCell *) [collCoverFlow cellForItemAtIndexPath:indexPath];
+    cellPhoto.imgLikeUnLike.hidden = true;
+}
 
 @end

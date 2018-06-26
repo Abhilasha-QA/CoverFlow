@@ -11,5 +11,6 @@
 
 @property IBOutlet UIImageView *imageView;
 @property IBOutlet UILabel *lblReload;
+@property IBOutlet UIImageView *imgLikeUnLike;
 
 @end

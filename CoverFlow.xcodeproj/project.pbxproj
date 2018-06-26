@@ -155,7 +155,7 @@
 				TargetAttributes = {
 					5E8672E81EEE80DD009A1419 = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = 7224G6JACN;
+						DevelopmentTeam = V8A8Z4973G;
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -318,14 +318,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 7224G6JACN;
+				DEVELOPMENT_TEAM = V8A8Z4973G;
 				INFOPLIST_FILE = CoverFlow/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mi.CoverFlow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7bc2550d-95b8-481d-b415-c5d3f033a9a4";
-				PROVISIONING_PROFILE_SPECIFIER = MI_New_Account_Development_11AUG2017;
+				PROVISIONING_PROFILE = "cab1236a-2748-489a-8644-5f934d7a4b2e";
+				PROVISIONING_PROFILE_SPECIFIER = "* Development 31 May 2018";
 			};
 			name = Debug;
 		};
@@ -333,14 +333,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 7224G6JACN;
+				DEVELOPMENT_TEAM = V8A8Z4973G;
 				INFOPLIST_FILE = CoverFlow/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mi.CoverFlow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7bc2550d-95b8-481d-b415-c5d3f033a9a4";
-				PROVISIONING_PROFILE_SPECIFIER = MI_New_Account_Development_11AUG2017;
+				PROVISIONING_PROFILE = "cab1236a-2748-489a-8644-5f934d7a4b2e";
+				PROVISIONING_PROFILE_SPECIFIER = "* Development 31 May 2018";
 			};
 			name = Release;
 		};

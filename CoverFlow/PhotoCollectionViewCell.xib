@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -28,6 +28,9 @@
                         <color key="textColor" red="0.45882352941176469" green="0.45882352941176469" blue="0.45882352941176469" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="like" translatesAutoresizingMaskIntoConstraints="NO" id="ERh-0m-SzZ">
+                        <rect key="frame" x="110" y="110" width="85" height="85"/>
+                    </imageView>
                 </subviews>
             </view>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -38,14 +41,22 @@
                 <constraint firstAttribute="trailing" secondItem="dWt-G9-C2F" secondAttribute="trailing" id="Tg5-gk-TrS"/>
                 <constraint firstItem="whD-Je-rnN" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="U5e-V8-17B"/>
                 <constraint firstAttribute="trailing" secondItem="whD-Je-rnN" secondAttribute="trailing" id="aG8-U6-MpK"/>
+                <constraint firstAttribute="trailing" secondItem="ERh-0m-SzZ" secondAttribute="trailing" constant="110" id="bDC-q7-O1I"/>
+                <constraint firstAttribute="bottom" secondItem="ERh-0m-SzZ" secondAttribute="bottom" constant="110" id="g8p-vP-kDi"/>
                 <constraint firstAttribute="bottom" secondItem="whD-Je-rnN" secondAttribute="bottom" id="gCJ-nn-qSP"/>
+                <constraint firstItem="ERh-0m-SzZ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="110" id="in4-Jc-b9j"/>
                 <constraint firstItem="dWt-G9-C2F" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="oXz-Pn-NQ6"/>
+                <constraint firstItem="ERh-0m-SzZ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="110" id="vFP-fo-S39"/>
             </constraints>
             <connections>
                 <outlet property="imageView" destination="whD-Je-rnN" id="miU-KZ-zbL"/>
+                <outlet property="imgLikeUnLike" destination="ERh-0m-SzZ" id="BJO-gj-dH9"/>
                 <outlet property="lblReload" destination="dWt-G9-C2F" id="as6-hF-JbR"/>
             </connections>
             <point key="canvasLocation" x="32.5" y="104"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="like" width="85" height="85"/>
+    </resources>
 </document>
